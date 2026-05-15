@@ -147,6 +147,11 @@
 // @match   https://lat-team.com/playlists/*
 // @match   https://lat-team.com/torrents*
 
+// @match   https://lst.gg/
+// @match   https://lst.gg/*/bookmarks
+// @match   https://lst.gg/playlists/*
+// @match   https://lst.gg/torrents*
+
 // @match   https://luminarr.me/
 // @match   https://luminarr.me/*/bookmarks
 // @match   https://luminarr.me/playlists/*
@@ -439,6 +444,12 @@ const settingsPanelTrackers = [
         primaryDomain: 'lat-team',
     },
 
+   {
+        trackerName: 'LST', // @LilithOfTheValley
+        homepageURL: 'https://lst.gg',
+        primaryDomain: 'lst',
+    },
+    
     {
         trackerName: 'Luminarr', // @holy-elbow
         homepageURL: 'https://lumniarr.me',
@@ -1286,6 +1297,11 @@ if ( primaryDomain == 'animebytes' ) {
 
     unit3dTrackerHandler('a[href^="https://lat-team.com/torrents/download"]')
 
+} else if ( primaryDomain == 'lst' ) {
+    // ----------------------------------- LST -----------------------------------
+    // Homepage| Search | Torrents | Playlists | Collections
+    unit3dTrackerHandler('a[href^="https://lst.gg/torrents/download/"]')
+    
 } else if ( primaryDomain == 'luminarr' ) {
     // ----------------------------------- Luminarr -----------------------------------
     // Bookmarks | Browse | Details | Playlists
